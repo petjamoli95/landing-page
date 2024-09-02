@@ -7,10 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        'karla': ['Karla', 'sans-serif'],
+        'merriweather': ['Merriweather', 'serif'],
+      },
+      colors: {
+        white: '#FFFFFF',
+        grey: '#BFB8B0',
+        red: '#FF5757',
+        dark: '#3B3B3B'
       },
     },
   },
