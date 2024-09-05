@@ -44,14 +44,15 @@ export default async function Page() {
   const facilityData = pageData.body[1];
 
   return (
-    <div className='flex flex-col justify-center items-center w-screen'>
-      <Header />
-      <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col'>
+      <div className='h-screen flex flex-col justify-center items-center'>
+        <Header />
         <TitleAndText title={titleData} />
-        <Rooms rooms={roomData} />
       </div>
+      <Rooms rooms={roomData} />
+      
       {/* <Facilities facilities={facilityData} /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
     // <div>
     //   <h1>Page Data</h1>
