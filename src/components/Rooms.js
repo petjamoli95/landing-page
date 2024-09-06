@@ -48,7 +48,7 @@ export default function Rooms({ rooms }) {
       {rooms.items.map((item, index) => (
           // <RoomCard room={item} ref={addToCardRefs} key={index} />
         <div ref={addToCardRefs} key={index} className="absolute inset-0 flex items-center justify-center">
-          <Image className="h-4/5 w-4/5" src={`http://35.179.72.232${item.mainImage.meta.download_url}`} width={1274} height={700} alt={item.mainImage.title} />
+          <Image className="h-4/5 w-4/5 object-contain" src={`http://35.179.72.232${item.mainImage.meta.download_url}`} width={1274} height={700} alt={item.mainImage.title} />
         </div>
       ))}
     </div>

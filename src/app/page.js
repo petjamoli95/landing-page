@@ -45,7 +45,7 @@ export default async function Page() {
 
   return (
     <div className='flex flex-col'>
-      <div className='h-screen flex flex-col justify-center items-center'>
+      <div className='min-h-screen relative overflow-auto flex flex-col justify-center items-center'>
         <Header />
         <TitleAndText title={titleData} />
       </div>
