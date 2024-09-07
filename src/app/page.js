@@ -1,33 +1,10 @@
 import { fetchPageData, fetchRoomData } from '../services/api';
 import Button from '@/components/Button';
+import Facilities from '@/components/Facilities';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import TitleAndText from '@/components/TitleAndText';
 import Rooms from '@/components/Rooms';
-
-function Facilities ({ facilities }) {
-  return (
-    <div>
-      <div>
-        Facilities
-      </div>
-      <div>
-        <FacilityIcon />
-      </div>
-      <div>
-        <Button />
-      </div>
-    </div>
-  )
-}
-
-function FacilityIcon() {
-  return (
-    <div>
-      Facility Icons
-    </div>
-  )
-}
+import TitleAndText from '@/components/TitleAndText';
 
 export async function generateMetadata() {
   const { meta } = await fetchPageData();
@@ -41,7 +18,7 @@ export async function generateMetadata() {
 export default async function Page() {
   const [pageData, roomData] = await Promise.all([fetchPageData(), fetchRoomData()]);
   const titleData = pageData.body[0];
-  const facilityData = pageData.body[1];
+  const facilityData = pageData.body[1].value.icons;
 
   return (
     <div className='flex flex-col'>
@@ -50,9 +27,11 @@ export default async function Page() {
         <TitleAndText title={titleData} />
       </div>
       <Rooms rooms={roomData} />
+      <div className='h-screen flex flex-col justify-between items-center'>
+        <Facilities facilities={facilityData} />
+        <Footer />
+      </div>
       
-      {/* <Facilities facilities={facilityData} /> */}
-      {/* <Footer /> */}
     </div>
     // <div>
     //   <h1>Page Data</h1>
