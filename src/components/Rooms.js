@@ -40,19 +40,16 @@ export default function Rooms({ rooms }) {
   );
 
   return (
-    <div ref={container} className="h-screen overflow-hidden">
+    <div ref={container} className="h-screen relative overflow-hidden">
       <div className="absolute inset-0 flex flex-col items-center justify-center m-8">
         <div className="relative inline-block">
           <Image className="block" src={`http://35.179.72.232${rooms.items[0].mainImage.meta.download_url}`} width={1224} height={816} alt={rooms.items[0].mainImage.title} />
           <div className="p-8 absolute bg-dark w-1/3 h-1/2 bottom-10 left-10 flex flex-col justify-center overflow-hidden">
-            <h1 className="text-white font-karla text-5xl leading tight">{rooms.items[0].title}</h1>
-            <div className="inline-flex">
-              <hr className="w-64 h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
-              <a className="text-red my-12 text-2xl">View Details</a>
-            </div>
-            <div className="flex flex-row">
-              <Button />
-              <button className='ml-6 p-8 font-karla text-2xl text-bold bg-white'>ENQUIRE</button>
+            <h1 className="text-white absolute top-2 left-2 lg:top-5 lg:left-5 font-karla text-xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl leading tight">{rooms.items[0].title}</h1>
+            <a href="" className="text-red absolute bottom-5 left-2 lg:bottom-40 lg:left-5 text-md sm:text-md md:text-2xl">View Details</a>
+            <div className="absolute hidden lg:block flex lg:bottom-5 lg:left-5 flex-row">
+              <button className='p-6 xl:p-10 font-karla text-2xl text-bold bg-red text-white'>BOOK</button>
+              <button className='ml-3 xl:ml-6 p-6 xl:p-10 font-karla text-2xl text-bold bg-white'>ENQUIRE</button>
             </div>
           </div>
         </div>
@@ -61,12 +58,12 @@ export default function Rooms({ rooms }) {
         <div ref={(el) => cardRefs.current[index] = el} key={index} className="absolute inset-0 flex flex-col items-center justify-center m-8">
           <div className="relative inline-block">
             <Image className="block" src={`http://35.179.72.232${item.mainImage.meta.download_url}`} width={1224} height={816} alt={item.mainImage.title} />
-            <div className="p-8 absolute bg-dark w-1/3 h-1/2 bottom-10 left-10 flex flex-col justify-center overflow-auto">
-              <h1 className="text-white font-karla text-5xl leading-tight">{item.title}</h1>
-              <p className="text-red my-12 text-2xl">View Details</p>
-              <div className="flex flex-row">
-                <Button />
-                <button className='ml-6 p-8 font-karla text-2xl text-bold bg-white'>ENQUIRE</button>
+            <div className="p-8 absolute bg-dark w-1/3 h-1/2 bottom-10 left-10 flex flex-col justify-center overflow-hidden">
+              <h1 className="text-white absolute top-2 left-2 lg:top-5 lg:left-5 font-karla text-xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-5xl leading tight">{item.title}</h1>
+              <a href="" className="text-red absolute bottom-5 left-2 lg:bottom-40 lg:left-5 text-md sm:text-md md:text-2xl">View Details</a>
+              <div className="absolute hidden lg:block flex lg:bottom-5 lg:left-5 flex-row">
+                <button className='p-6 xl:p-10 font-karla text-2xl text-bold bg-red text-white'>BOOK</button>
+                <button className='ml-3 xl:ml-6 p-6 xl:p-10 font-karla text-2xl text-bold bg-white'>ENQUIRE</button>
               </div>
             </div>
           </div>
