@@ -27,10 +27,8 @@ export default async function Page() {
         <TitleAndText title={titleData} />
       </div>
       <Rooms rooms={roomData} />
-      <div className='h-screen flex flex-col justify-between items-center'>
-        <Facilities facilities={facilityData} />
-        <Footer />
-      </div>
+      <Facilities facilities={facilityData} />
+      <Footer />
       
     </div>
     // <div>

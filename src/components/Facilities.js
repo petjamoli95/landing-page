@@ -19,11 +19,22 @@ export default function Facilities ({ facilities }) {
   facilityRefs.current = [];
 
   return (
-    <div className="w-full h-5/6 flex flex-col bg-dark justify-between py-16 items-center">
-      <div className="text-white font-karla text-5xl">
+    <div className="h-screen overflow-hidden bg-dark">
+      <div className='w-full h-full flex flex-col items-center justify-center'>
+        <div className='w-full flex items-center'>
+        {facilities.map((item, index) =>
+          <div ref={(el) => facilityRefs.current[index] = el} key={index} className='bg-white mx-5'>
+            <div className='w-96 h-96 flex items-center justify-center'>
+              <Image src={`http://35.179.72.232${item.image.original.src}`} width={312} height={312} alt={item.image.original.alt}/>
+            </div>
+          </div>
+        )}
+        </div>
+      </div>
+      {/* <div className="text-white font-karla text-5xl">
         Facilities
       </div>
-      <div ref={container} className="flex flex-nowrap my-16 overflow-hidden">
+      <div ref={container} className="w-full h-full flex flex-nowrap my-16 overflow-hidden">
         {facilities.map((item, index) =>
           <div ref={(el) => facilityRefs.current[index] = el} key={index} className="bg-white flex p-16 flex-nowrap flex-col mx-4 items-center justify-center">
             <Image src={`http://35.179.72.232${item.image.original.src}`} width={312} height={312} alt={item.image.original.alt}/>
@@ -35,7 +46,7 @@ export default function Facilities ({ facilities }) {
       </div>
       <div>
         <Button />
-      </div>
+      </div> */}
     </div>
   )
 }
