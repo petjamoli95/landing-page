@@ -4,7 +4,7 @@ import parse from 'html-react-parser';
 
 import Image from "next/image";
 
-import { gsap } from "gsap";
+import { gsap, snap } from "gsap";
 import { useRef } from "react";
 import { useGSAP } from '@gsap/react';
 
@@ -19,24 +19,11 @@ export default function Facilities ({ facilities }) {
   boxRefs.current = [];
   
   useGSAP(() => {
-    horizontalLoop(boxRefs.current, {
-      center:true,
+    const loop = horizontalLoop(boxRefs.current, {
+      paddingRight:40,
+      repeat: -1,
     });
 
-    /*
-    This helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
-
-    Features:
-    - Uses xPercent so that even if the widths change (like if the window gets resized), it should still work in most cases.
-    - When each item animates to the left or right enough, it will loop back to the other side
-    - Optionally pass in a config object with values like "speed" (default: 1, which travels at roughly 100 pixels per second), paused (boolean),  repeat, reversed, and paddingRight.
-    - The returned timeline will have the following methods added to it:
-    - next() - animates to the next element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
-    - previous() - animates to the previous element using a timeline.tweenTo() which it returns. You can pass in a vars object to control duration, easing, etc.
-    - toIndex() - pass in a zero-based index value of the element that it should animate to, and optionally pass in a vars object to control duration, easing, etc. Always goes in the shortest direction
-    - current() - returns the current index (if an animation is in-progress, it reflects the final index)
-    - times - an Array of the times on the timeline where each element hits the "starting" spot. There's also a label added accordingly, so "label1" is when the 2nd element reaches the start.
-    */
     function horizontalLoop(items, config) {
       items = gsap.utils.toArray(items);
       config = config || {};
@@ -141,35 +128,23 @@ export default function Facilities ({ facilities }) {
   })
 
   return (
-    <div className="h-screen overflow-hidden bg-dark">
-      <div className='w-full h-5/6 flex items-center justify-center overflow-hidden'>
-        <div className='w-full h-full flex flex-nowrap items-center relative overflow-hidden mr-5'>
+      <div className='flex flex-col items-center bg-dark justify-center py-16 overflow-hidden'>
+        <div className="text-white font-karla text-6xl">
+          Facilities
+        </div>
+        <div className='my-16 flex items-center transform -translate-x-[7.4%] lg:-translate-x-[7.5%] xl:-translate-x-[7.6%] 2xl:-translate-x-[7.8%] relative justify-start overflow-hidden'>
         {facilities.map((item, index) =>
-          <div ref={(el) => boxRefs.current[index] = el} key={index} className='bg-white relative h-128 w-128 shrink-0 mx-5 flex flex-col items-center justify-center'>
-              <Image src={`http://35.179.72.232${item.image.original.src}`} width={312} height={312} alt={item.image.original.alt}/>
-              <div className='font-karla text-2xl'>
+          <div ref={(el) => boxRefs.current[index] = el} key={index} className='bg-white relative h-72 w-72 md:h-80 md:w-80 lg:h-96 lg:w-96 xl:h-[28rem] xl:w-[28rem] 2xl:h-[36rem] 2xl:w-[36rem] shrink-0 mr-10 flex flex-col items-center justify-center'>
+              <Image className='w-3/5 h-3/5' src={`http://35.179.72.232${item.image.original.src}`} width={312} height={312} alt={item.image.original.alt}/>
+              <div className='font-karla pt-10 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>
                 {parse(item.title)}
               </div>
           </div>
         )}
         </div>
+        <div>
+          <Button />
+        </div>
       </div>
-      {/* <div className="text-white font-karla text-5xl">
-        Facilities
-      </div>
-      <div ref={container} className="w-full h-full flex flex-nowrap my-16 overflow-hidden">
-        {facilities.map((item, index) =>
-          <div ref={(el) => facilityRefs.current[index] = el} key={index} className="bg-white flex p-16 flex-nowrap flex-col mx-4 items-center justify-center">
-            <Image src={`http://35.179.72.232${item.image.original.src}`} width={312} height={312} alt={item.image.original.alt}/>
-            <div className="font-karla text-4xl justify-center items-center">
-              {parse(item.title)}
-            </div>
-          </div>
-        )}
-      </div>
-      <div>
-        <Button />
-      </div> */}
-    </div>
   )
 }
