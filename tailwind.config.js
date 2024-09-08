@@ -17,6 +17,12 @@ module.exports = {
         red: '#FF5757',
         dark: '#3B3B3B'
       },
+      spacing: {
+        '128': '32rem',
+      },
+      width: {
+        '128': '32rem',
+      },
     },
   },
   plugins: [],

@@ -20,7 +20,7 @@ export default function Rooms({ rooms }) {
   useGSAP(
     () => {
       gsap.from(cardRefs.current, {
-        yPercent: 100,
+        yPercent: 200,
         ease: "none",
         stagger: 0.5,
         scrollTrigger: {
