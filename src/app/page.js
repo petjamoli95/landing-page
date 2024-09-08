@@ -22,18 +22,13 @@ export default async function Page() {
 
   return (
     <div className='flex flex-col'>
-      <div className='min-h-screen relative overflow-auto flex flex-col justify-between items-center'>
+      <div className='flex flex-col justify-start items-center'>
         <Header />
         <TitleAndText title={titleData} />
       </div>
       <Rooms rooms={roomData} />
       <Facilities facilities={facilityData} />
       <Footer />
-      
     </div>
-    // <div>
-    //   <h1>Page Data</h1>
-    //   <pre>{JSON.stringify(pageData, null, 2)}</pre>
-    // </div>
   )
 }
