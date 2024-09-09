@@ -22,13 +22,13 @@ export default function Rooms({ rooms }) {
     () => {
       gsap.from(cardRefs.current, {
         yPercent: 200,
-        ease: "none",
+        ease: "power1.inOut",
         stagger: 0.5,
         delay: 1,
         scrollTrigger: {
           trigger: container.current,
           start: 'top top',
-          end: '+=8000px',
+          end: '+=6000px',
           markers: true,
           scrub: true,
           pin: true,
