@@ -134,9 +134,9 @@ export default function Facilities ({ facilities }) {
         </div>
         <div className='my-16 flex items-center transform -translate-x-[7.4%] lg:-translate-x-[7.5%] xl:-translate-x-[7.6%] 2xl:-translate-x-[7.8%] relative justify-start overflow-hidden'>
         {facilities.map((item, index) =>
-          <div ref={(el) => boxRefs.current[index] = el} key={index} className='bg-white relative h-72 w-72 md:h-80 md:w-80 lg:h-96 lg:w-96 xl:h-[28rem] xl:w-[28rem] 2xl:h-[36rem] 2xl:w-[36rem] shrink-0 mr-10 flex flex-col items-center justify-center'>
+          <div ref={(el) => boxRefs.current[index] = el} key={index} className='bg-white relative h-64 w-64 sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96 xl:h-[28rem] xl:w-[28rem] 2xl:h-[36rem] 2xl:w-[36rem] shrink-0 mr-10 flex flex-col items-center justify-center'>
               <Image className='w-3/5 h-3/5' src={`http://35.179.72.232${item.image.original.src}`} width={312} height={312} alt={item.image.original.alt}/>
-              <div className='font-karla pt-10 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>
+              <div className='font-karla pt-5 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl'>
                 {parse(item.title)}
               </div>
           </div>
