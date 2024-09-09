@@ -3,5 +3,5 @@
 ## Setup
 
 Clone the repository and run:
-```npm install```
+```npm install``` and
 ```npm run dev```
