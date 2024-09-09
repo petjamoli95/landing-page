@@ -24,7 +24,7 @@ export default function Facilities ({ facilities }) {
 
     setInterval(()=>{
       loop.next({ duration: 1, ease: "power1.inOut" })
-    },2000)
+    }, 3000)
 
 
     function horizontalLoop(items, config) {
