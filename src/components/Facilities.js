@@ -1,15 +1,13 @@
 "use client";
 
-import parse from 'html-react-parser';
-
+import Button from "./Button";
 import Image from "next/image";
 
-import { gsap, snap } from "gsap";
+import { gsap } from "gsap";
+import parse from 'html-react-parser';
 import { useRef } from "react";
 import { useGSAP } from '@gsap/react';
-
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Button from "./Button";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -25,8 +23,8 @@ export default function Facilities ({ facilities }) {
     });
 
     setInterval(()=>{
-      loop.next({ duration: 0.4, ease: "power1.inOut" })
-    },3000)
+      loop.next({ duration: 1, ease: "power1.inOut" })
+    },2000)
 
 
     function horizontalLoop(items, config) {

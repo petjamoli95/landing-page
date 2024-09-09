@@ -2,14 +2,16 @@ import Image from "next/image";
 
 export default function RoomCard({ room }) {
   return (
-    <div className="relative inline-block">
+    <div className="relative flex inline-block">
       <Image className="block" src={`http://35.179.72.232${room.mainImage.meta.download_url}`} width={1224} height={816} alt={room.mainImage.title} />
-      <div className="p-8 absolute bg-dark w-1/3 h-1/4 xs:h-1/3 lg:h-1/2 bottom-10 left-10 flex flex-col justify-center overflow-hidden">
-        <h1 className="text-white absolute top-1 left-1 xs:top-2 xs:left-2 md:top-5 md:left-5 font-karla text-md xs:text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl leading-tight">{room.title}</h1>
-        <a href="" className="text-red absolute bottom-1 left-1 xs:bottom-2 md:bottom-5 lg:bottom-40 md:left-5 text-xs md:text-md lg:text-xl xl:text-2xl">View Details</a>
-        <div className="absolute hidden lg:block flex lg:bottom-5 lg:left-5 flex-row">
-          <button className='p-6 xl:p-10 font-karla text-2xl text-bold bg-red text-white'>BOOK</button>
-          <button className='ml-3 xl:ml-6 p-6 xl:p-10 font-karla text-2xl text-bold bg-white'>ENQUIRE</button>
+      <div className="absolute bg-dark w-1/3 h-1/3 lg:h-1/2 bottom-10 left-10 flex flex-col justify-center overflow-hidden">
+        <div className="p-2 xs:p-4 sm:p-6 lg:p-8 flex flex-col">
+          <h1 className="text-white font-karla text-md xs:text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl leading-tight">{room.title}</h1>
+          <a href="" className="text-red my-2 md:my-4 lg:my-8 xl:my-12 text-xs xs:text-sm sm:text-md md:text-lg lg:text-xl">View Details</a>
+          <div className="hidden lg:block flex flex-row">
+            <button className='p-4 xl:p-8 font-karla text-2xl text-bold bg-red text-white'>BOOK</button>
+            <button className='ml-2 xl:ml-6 p-4 xl:p-8 font-karla text-2xl text-bold bg-white'>ENQUIRE</button>
+          </div>
         </div>
       </div>
     </div>

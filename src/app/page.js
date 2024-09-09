@@ -1,10 +1,10 @@
-import { fetchPageData, fetchRoomData } from '../services/api';
-import Button from '@/components/Button';
 import Facilities from '@/components/Facilities';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Rooms from '@/components/Rooms';
 import TitleAndText from '@/components/TitleAndText';
+
+import { fetchPageData, fetchRoomData } from '../services/api';
 
 export async function generateMetadata() {
   const { meta } = await fetchPageData();
