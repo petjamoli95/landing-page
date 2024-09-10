@@ -26,7 +26,6 @@ export default function Rooms({ rooms }) {
           trigger: container.current,
           start: 'top top',
           end: '+=12000px',
-          markers: true,
           scrub: true,
           pin: true,
           pinSpacing: true,
